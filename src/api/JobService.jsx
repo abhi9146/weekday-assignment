@@ -19,7 +19,7 @@ export const fetchJobData =async () => {
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
-      const result = await response.text();
+      const result = await response.json();
       return result;
     } catch (error) {
       console.error(error);
