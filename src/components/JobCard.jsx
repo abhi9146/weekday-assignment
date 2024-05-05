@@ -38,7 +38,7 @@ export function JobCard({ job }) {
         <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
           {job.logoUrl && <img src={job.logoUrl} alt="Company Logo" style={{height:'3rem',width:'2.5rem'}}/>}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {job.companyName && <div style={{fontSize:'15px',fontFamily:'monospace'}}>{job.companyName}</div>}
+            {job.companyName && <div style={{fontSize:'15px',fontFamily:'monospace',color:'#80808096'}}>{job.companyName}</div>}
             {job.jobRole && <div style={{fontSize:'19px',fontWeight:'bold'}}>{job.jobRole}</div>}
             {job.location && <div style={{fontSize:'13px'}}>{job.location}</div>}
           </div>
@@ -51,7 +51,7 @@ export function JobCard({ job }) {
             <div style={{ margin: '2px',fontWeight:'bold' }}>About Company:</div>
             <div style={{fontWeight:'bold'}}>About Us:</div>
             <div style={{fontFamily: "Arial"}}>
-              {showFullDescription ? job.jobDetailsFromCompany : job.jobDetailsFromCompany.substring(0, 100)}
+              {showFullDescription ? job.jobDetailsFromCompany : job.jobDetailsFromCompany.substring(0, 250)}
               {!showFullDescription && (
                 <div style={{
                   position: 'absolute',
@@ -61,8 +61,8 @@ export function JobCard({ job }) {
                 }} />
               )}
               <div style={{textAlign: 'center', marginTop: '10px'}}>
-                <button onClick={toggleDescription}>
-                  {showFullDescription ? 'View Less' : 'View More'}
+                <button onClick={toggleDescription} style={{color:'blue',border:'none',backgroundColor:'white'}}>
+                  {showFullDescription ? 'View Less' : 'View Job'}
                 </button>
               </div>
             </div>

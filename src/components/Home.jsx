@@ -43,13 +43,13 @@ export function Home() {
           filteredData = allData.filter((job) => {
             const jobMinSalary = parseInt(job[filterName]);
             const jobMaxSalary = parseInt(job['maxJdSalary']);
-            return filters[filterName].some((minSalary) => jobMinSalary < parseInt(minSalary) && jobMaxSalary>parseInt(minSalary));
+            return filters[filterName].some((minSalary) => jobMinSalary <= parseInt(minSalary) && jobMaxSalary>=parseInt(minSalary));
           });
         } else if (filterName === 'experience') {
           filteredData = allData.filter((job) => {
             const jobMinExperience = parseInt(job['minExp']);
             const jobMaxExperience = parseInt(job['maxExp']);
-            return filters[filterName].some((exp) => jobMinExperience < parseInt(exp) && jobMaxExperience > parseInt(exp));
+            return filters[filterName].some((exp) => jobMinExperience <= parseInt(exp) && jobMaxExperience >= parseInt(exp));
           });
         } else if (filterName === 'workMode'){
           filteredData = allData.filter((job) =>{

@@ -44,7 +44,7 @@ export function Filters({ setFilters, setSearchTerm }) {
   return (
     <div>
       <Box sx={{ display: 'flex',flexWrap: 'wrap',flexDirection: 'row',justifyContent: 'flex-start' ,p: 1,m: 1 ,gap:'0.5rem'}}>
-         <div style={{ width: '8rem' }}>
+         <div style={{ width: '12rem' }}>
           <Select
             isMulti
             className="react-select-styled react-select-solid"
@@ -113,13 +113,13 @@ export function Filters({ setFilters, setSearchTerm }) {
                 onChange={(selectedOption) => handleFilterChange('minJdSalary', selectedOption)}
               />
             </div>
-            <div style={{ width: '14rem' }}>
+            <div style={{ width: '12rem' }}>
              <input
                 type="text"
                 placeholder="Search Company Name"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                style={{ height: '2rem' ,outline:'none'}}
+                style={{ height: '2rem' ,outline:'none',width:'100%'}}
               />
             </div>
         </Box>
