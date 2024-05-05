@@ -4,7 +4,7 @@
 ## Installation:
 To run this project locally, follow these steps:
 
-# Clone the repository: 
+## Clone the repository: 
 git clone https://github.com/abhi9146/weekday-assignment.git
 
 ## Navigate to the project directory: 
