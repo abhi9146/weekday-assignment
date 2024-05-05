@@ -12,7 +12,7 @@ export function Home() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   const fetchData = useCallback(async () => {
     if (fetchingMore) return; // to Prevent multiple concurrent fetch requests
