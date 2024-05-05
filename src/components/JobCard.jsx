@@ -1,7 +1,8 @@
-import { Button, Card, CardMedia, Stack, Typography } from '@mui/material';
+import { Button, Card } from '@mui/material';
 import HourglassTopTwoToneIcon from '@mui/icons-material/HourglassTopTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 import {useState} from 'react'
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 
 const useStyles = makeStyles((theme) => ({
   roundedDiv: {
@@ -9,8 +10,8 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid black',
     display:'flex',
     padding:'2px',
-    fontSize:'14px',
-    width:'9rem',
+    fontSize:'13px',
+    width:'8rem',
     marginBottom:'10px'
   },
 }));
@@ -23,29 +24,33 @@ export function JobCard({ job }) {
       setShowFullDescription(!showFullDescription);
     };
     const styleForHourGlass={
-        fontSize:'17px'
+        fontSize:'16px'
     }
     return (
-      <Card style={{ width: '20rem', padding: '10px', marginBottom: '15px' }}>
+      <Card style={{ width: '20rem', padding: '10px', marginBottom: '15px',display: 'flex', flexDirection: 'column',justifyContent: 'space-between' }}>
+        <div>
         {job.jobDetailsFromCompany && (
           <div className={classes.roundedDiv}>
             <HourglassTopTwoToneIcon style={styleForHourGlass} />
-            <span>Posted 10 days ago</span>
+            <span style={{fontFamily: "Times New Roman"}}>Posted 10 days ago</span>
           </div>
         )}
         <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
           {job.logoUrl && <img src={job.logoUrl} alt="Company Logo" style={{height:'3rem',width:'2.5rem'}}/>}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {job.companyName && <div>{job.companyName}</div>}
-            {job.jobRole && <div>{job.jobRole}</div>}
-            {job.location && <div>{job.location}</div>}
+            {job.companyName && <div style={{fontSize:'15px',fontFamily:'monospace'}}>{job.companyName}</div>}
+            {job.jobRole && <div style={{fontSize:'19px',fontWeight:'bold'}}>{job.jobRole}</div>}
+            {job.location && <div style={{fontSize:'13px'}}>{job.location}</div>}
           </div>
+        </div>
+        <div>
+          {job.minJdSalary && <div><span style={{fontFamily:'Georgia'}}>Estimated Salary:</span> {job.minJdSalary} - {job.maxJdSalary} {job.salaryCurrencyCode}</div>}
         </div>
         {job.jobDetailsFromCompany && (
           <div className="mb-6" style={{ position: 'relative' }}>
-            <div style={{ margin: '2px' }}>About Company:</div>
-            <div>About Us:</div>
-            <div>
+            <div style={{ margin: '2px',fontWeight:'bold' }}>About Company:</div>
+            <div style={{fontWeight:'bold'}}>About Us:</div>
+            <div style={{fontFamily: "Arial"}}>
               {showFullDescription ? job.jobDetailsFromCompany : job.jobDetailsFromCompany.substring(0, 100)}
               {!showFullDescription && (
                 <div style={{
@@ -55,23 +60,25 @@ export function JobCard({ job }) {
                   backgroundImage: 'linear-gradient(to top, white, transparent)'
                 }} />
               )}
-              <button onClick={toggleDescription}>
-                {showFullDescription ? 'View Less' : 'View More'}
-              </button>
+              <div style={{textAlign: 'center', marginTop: '10px'}}>
+                <button onClick={toggleDescription}>
+                  {showFullDescription ? 'View Less' : 'View More'}
+                </button>
+              </div>
             </div>
           </div>
         )}
         {(job.minExp || job.maxExp) && (
           <div style={{ marginTop: '10px' }}>
-            <div>Experience</div>
-            <div>{job.minExp} - {job.maxExp} years</div>
+            <div style={{fontFamily:'Georgia',fontWeight:'bold'}}>Experience</div>
+            <div style={{fontSize:'13px',marginLeft:'0.5rem'}}>{job.minExp} - {job.maxExp} years</div>
           </div>
         )}
-        <div>
-          <button>Easy Apply</button>
-          <button>Unlock referral asks</button>
+        </div>
+        <div style={{width:'100%',display:'flex',flexDirection:'column'}}>
+          <Button variant="contained" style={{margin:'6px',backgroundColor:'#55EFC4',color:'black'}}><ElectricBoltIcon/>Easy Apply</Button>
+          <Button variant="contained" style={{margin:'6px',backgroundColor:'#1976D2'}}>Unlock referral asks</Button>
         </div>
       </Card>
     );
   }
-  

@@ -20,6 +20,7 @@ export const fetchJobData = async (pageNumber) => {
       throw new Error('Failed to fetch data');
     }
     const result = await response.json();
+    console.log("api called");
     return result;
   } catch (error) {
     console.error(error);

@@ -7,6 +7,8 @@ export const roles = [
         { value: 'Frontend', label: 'Frontend' },
         { value: 'Backend', label: 'Backend' },
         { value: 'FullStack', label: 'FullStack' },
+        { value: 'Ios', label: 'Ios' },
+        { value: 'Android', label: 'Android' },
       ],
     },
     {
@@ -98,10 +100,12 @@ export const roles = [
   ];
   export const workMode = [
     { value: 'Remote', label: 'Remote' },
-    { value: 'Hybrid', label: 'Hybrid' },
-    { value: 'In-office', label: 'In-office' },
+    { value: 'Bangalore', label: 'Bangalore' },
+    { value: 'Delhi NCR', label: 'Delhi NCR' },
+    { value: 'Mumbai', label: 'Mumbai' },
+    { value: 'Chennai', label: 'Chennai' },
   ];
-  export const minimumSalary = [
+  export const minJdSalary = [
     { value: '0', label: '0L' },
     { value: '10L', label: '10L' },
     { value: '20L', label: '20L' },
